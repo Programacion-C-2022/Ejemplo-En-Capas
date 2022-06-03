@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaLogica;
 
 namespace CapaVisual
 {
@@ -15,6 +16,19 @@ namespace CapaVisual
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void BotonGuardar_Click(object sender, EventArgs e)
+        {
+            PersonitaControlador.Alta(
+                Int32.Parse(TextBoxId.Text),
+                TextBoxNombre.Text,
+                TextBoxApellido.Text,
+                Int32.Parse(TextBoxTelefono.Text),
+                TextBoxEmail.Text
+           );
+
+            MessageBox.Show("Personita Creada");
         }
     }
 }

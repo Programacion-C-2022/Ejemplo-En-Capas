@@ -7,7 +7,7 @@ using CapaDeDatos;
 
 namespace CapaLogica
 {
-    public static class PersonitaControlador
+    public class PersonitaControlador
     {
         public static bool Alta(int id, string nombre, string apellido, int telefono, string email)
         {

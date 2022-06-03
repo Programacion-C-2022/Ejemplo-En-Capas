@@ -21,13 +21,15 @@ namespace CapaDeDatos
         public Modelo()
         {
 
-            this.conexion = new MySqlConnection(
-                       $"server={this.IpBaseDeDatos};" + 
-                       $"uid = {this.UsuarioBaseDeDatos};" +
-                       $"pwd={this.PasswordBaseDeDatos};" +
-                       $"database={this.NombreBaseDeDatos};" +
-                       $"port={this.PuertoBaseDeDatos}"
-                      );
+            this.conexion = new MySqlConnection();
+            this.conexion.ConnectionString =
+                       "server=" + this.IpBaseDeDatos + ";" +
+                       "uid=" + this.UsuarioBaseDeDatos + ";" +
+                       "pwd=" + this.PasswordBaseDeDatos + ";" +
+                       "database=" + this.NombreBaseDeDatos + ";" +
+                       "port=" + this.PuertoBaseDeDatos;
+                     
+
 
             this.conexion.Open();
 
