@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaDeDatos", "CapaDeDatos\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaLogica", "CapaLogica\CapaLogica.csproj", "{63D409F2-3B00-4CE5-919C-9198D3F713AA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaVisual", "CapaVisual\CapaVisual.csproj", "{3616992F-4350-415E-953B-382D190E5D47}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{63D409F2-3B00-4CE5-919C-9198D3F713AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63D409F2-3B00-4CE5-919C-9198D3F713AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63D409F2-3B00-4CE5-919C-9198D3F713AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3616992F-4350-415E-953B-382D190E5D47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3616992F-4350-415E-953B-382D190E5D47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3616992F-4350-415E-953B-382D190E5D47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3616992F-4350-415E-953B-382D190E5D47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
