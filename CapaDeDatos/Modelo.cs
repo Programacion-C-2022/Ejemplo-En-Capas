@@ -34,12 +34,13 @@ namespace CapaDeDatos
         private void conectarBaseDeDatos()
         {
             this.inicializarConexion(); // <-- ESTE HDP FALTABA!!!!!!!!!
-            this.conexion = new MySqlConnection();
-            this.conexion.ConnectionString = "server=" + this.IpBaseDeDatos + ";" +
-                       "userid=" + this.UsuarioBaseDeDatos + ";" +
-                       "password=" + this.PasswordBaseDeDatos + ";" +
-                       "database=" + this.NombreBaseDeDatos + ";" +
-                       "port=" + this.PuertoBaseDeDatos;
+            this.conexion = new MySqlConnection(
+                $"server={this.IpBaseDeDatos};" +
+                $"userid={this.UsuarioBaseDeDatos};" +
+                $"password={this.PasswordBaseDeDatos};" +
+                $"database={this.NombreBaseDeDatos};" +
+                $"port={this.PuertoBaseDeDatos}"
+            );
             this.conexion.Open();
         }
 

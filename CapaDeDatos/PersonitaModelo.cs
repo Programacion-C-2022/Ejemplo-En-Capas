@@ -15,36 +15,100 @@ namespace CapaDeDatos
         public int Telefono;
         public string Email;
 
+        public PersonitaModelo(int id)
+        {
+            this.Obtener(id);
+        }
+
+        public PersonitaModelo()
+        {
+
+        }
+
         public void Guardar()
         {
-            if (this.Id.ToString() == "") GuardarSinId();
-            else GuardarConId();
+            if (this.Id.ToString() != "") Actualizar();
+            else Insertar();
         }
 
-        private void GuardarConId()
+        private void Insertar()
         {
-            comando.CommandText = "INSERT INTO personita VALUES (@id, @nombre,@apellido,@email,@telefono)";
-            comando.Parameters.AddWithValue("@id", this.Id.ToString());
-            comando.Parameters.AddWithValue("@nombre", this.Nombre);
-            comando.Parameters.AddWithValue("@apellido", this.Apellido);
-            comando.Parameters.AddWithValue("@telefono", this.Telefono.ToString());
-            comando.Parameters.AddWithValue("@email", this.Email);
-            comando.Prepare();
-            comando.ExecuteNonQuery();
+            this.comando.CommandText = "INSERT INTO personita VALUES (@id, @nombre,@apellido,@email,@telefono)";
+            this.comando.Parameters.AddWithValue("@id", this.Id.ToString());
+            this.comando.Parameters.AddWithValue("@nombre", this.Nombre);
+            this.comando.Parameters.AddWithValue("@apellido", this.Apellido);
+            this.comando.Parameters.AddWithValue("@telefono", this.Telefono.ToString());
+            this.comando.Parameters.AddWithValue("@email", this.Email);
+            this.comando.Prepare();
+            this.comando.ExecuteNonQuery();
         }
 
-        private void GuardarSinId()
+        
+
+        public void Obtener(int id)
         {
-            comando.CommandText = "INSERT INTO " +
-                            "personita (nombre, apellido, telefono, email) " +
-                            "VALUES (@nombre,@apellido,@telefono,@email)";
+            this.comando.CommandText = "SELECT * FROM personita WHERE id = @id"; 
 
-            comando.Parameters.AddWithValue("@nombre", this.Nombre);
-            comando.Parameters.AddWithValue("@apellido", this.Apellido);
-            comando.Parameters.AddWithValue("@telefono", this.Telefono.ToString());
-            comando.Parameters.AddWithValue("@email", this.Email);
-            comando.Prepare();
-            comando.ExecuteNonQuery();
+            this.comando.Parameters.AddWithValue("@id", id);
+            this.comando.Prepare();
+            this.dataReader = this.comando.ExecuteReader();
+
+            this.dataReader.Read();
+
+            this.Id = Int32.Parse(this.dataReader["id"].ToString());
+            this.Nombre = this.dataReader["nombre"].ToString();
+            this.Apellido = this.dataReader["apellido"].ToString();
+            this.Telefono = Int32.Parse(this.dataReader["telefono"].ToString());
+            this.Email = this.dataReader["email"].ToString();
+
         }
+
+        private void Actualizar()
+        {
+            this.comando.CommandText = "UPDATE personita SET " +
+                "nombre = @nombre," +
+                "apellido = @apellido," +
+                "telefono = @telefono," +
+                "email = @email" +
+                "WHERE id = @id";
+
+            this.comando.Parameters.AddWithValue("@nombre", this.Nombre);
+            this.comando.Parameters.AddWithValue("@apellido", this.Apellido);
+            this.comando.Parameters.AddWithValue("@telefono", this.Telefono.ToString());
+            this.comando.Parameters.AddWithValue("@email", this.Email);
+            this.comando.Prepare();
+            this.comando.ExecuteNonQuery();
+        }
+
+        public void Eliminar()
+        {
+            this.comando.CommandText = "DELETE FROM personita WHERE id = @id";
+            this.comando.Parameters.AddWithValue("@id", this.Id);
+            this.comando.Prepare();
+            this.comando.ExecuteNonQuery();
+        }
+
+        public List<PersonitaModelo> Obtener()
+        {
+            List<PersonitaModelo> personitas = new List<PersonitaModelo>();
+            this.comando.CommandText = "SELECT * FROM personita";
+            this.dataReader = this.comando.ExecuteReader();
+
+            while (this.dataReader.Read())
+            {
+                PersonitaModelo p = new PersonitaModelo();
+                p.Id = Int32.Parse(dataReader["id"].ToString());
+                p.Nombre = dataReader["nombre"].ToString();
+                p.Apellido = dataReader["apellido"].ToString();
+                p.Telefono = Int32.Parse(dataReader["telefono"].ToString());
+                p.Email = dataReader["email"].ToString();
+
+                personitas.Add(p);
+            }
+
+            return personitas;
+
+        }
+
     }
 }
