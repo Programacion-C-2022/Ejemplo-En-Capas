@@ -20,22 +20,27 @@ namespace CapaDeDatos
 
         public Modelo()
         {
+            conectarBaseDeDatos();
+            inicializarComando();
 
+        }
+
+        private void inicializarComando()
+        {
+            this.comando = new MySqlCommand();
+            this.comando.Connection = this.conexion;
+        }
+
+        private void conectarBaseDeDatos()
+        {
+            this.inicializarConexion(); // <-- ESTE HDP FALTABA!!!!!!!!!
             this.conexion = new MySqlConnection();
-            this.conexion.ConnectionString =
-                       "server=" + this.IpBaseDeDatos + ";" +
-                       "uid=" + this.UsuarioBaseDeDatos + ";" +
-                       "pwd=" + this.PasswordBaseDeDatos + ";" +
+            this.conexion.ConnectionString = "server=" + this.IpBaseDeDatos + ";" +
+                       "userid=" + this.UsuarioBaseDeDatos + ";" +
+                       "password=" + this.PasswordBaseDeDatos + ";" +
                        "database=" + this.NombreBaseDeDatos + ";" +
                        "port=" + this.PuertoBaseDeDatos;
-                     
-
-
             this.conexion.Open();
-
-            this.comando.Connection = this.conexion;
-
-
         }
 
         private void inicializarConexion()
