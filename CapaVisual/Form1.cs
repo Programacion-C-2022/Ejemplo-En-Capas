@@ -30,5 +30,11 @@ namespace CapaVisual
 
             MessageBox.Show("Personita Creada");
         }
+
+        private void BotonListar_Click(object sender, EventArgs e)
+        {
+            DataGridPersonas.DataSource = PersonitaControlador.ObtenerTodos();
+
+        }
     }
 }

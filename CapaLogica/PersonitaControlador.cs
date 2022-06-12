@@ -50,7 +50,7 @@ namespace CapaLogica
             }
         }
 
-        public DataTable ObtenerTodos()
+        public static DataTable ObtenerTodos()
         {
             DataTable tablaPersonas = new DataTable();
             tablaPersonas.Columns.Add("Id", typeof(int));
@@ -65,17 +65,14 @@ namespace CapaLogica
             foreach (PersonitaModelo persona in personitas)
             {
                 DataRow fila = tablaPersonas.NewRow();
-                fila["Id"] = p.Id;
-                fila["Nombre"] = p.Nombre;
-                fila["Apellido"] = p.Apellido;
-                fila["Telefono"] = p.Telefono;
-                fila["Email"] = p.Email;
+                fila["Id"] = persona.Id;
+                fila["Nombre"] = persona.Nombre;
+                fila["Apellido"] = persona.Apellido;
+                fila["Telefono"] = persona.Telefono;
+                fila["Email"] = persona.Email;
 
                 tablaPersonas.Rows.Add(fila);
             }
-
-            return tablaPersonas;
-
 
             return tablaPersonas;
         }

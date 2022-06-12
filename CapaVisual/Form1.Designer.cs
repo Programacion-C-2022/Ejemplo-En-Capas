@@ -39,103 +39,138 @@
             this.TextBoxTelefono = new System.Windows.Forms.TextBox();
             this.TextBoxEmail = new System.Windows.Forms.TextBox();
             this.BotonGuardar = new System.Windows.Forms.Button();
+            this.DataGridPersonas = new System.Windows.Forms.DataGridView();
+            this.BotonListar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridPersonas)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 29);
+            this.label1.Location = new System.Drawing.Point(68, 54);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 13);
+            this.label1.Size = new System.Drawing.Size(31, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "ID";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 52);
+            this.label2.Location = new System.Drawing.Point(68, 96);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.Size = new System.Drawing.Size(81, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(37, 75);
+            this.label3.Location = new System.Drawing.Point(68, 138);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.Size = new System.Drawing.Size(82, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "Apellido";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(37, 97);
+            this.label4.Location = new System.Drawing.Point(68, 179);
+            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.Size = new System.Drawing.Size(89, 25);
             this.label4.TabIndex = 3;
             this.label4.Text = "Telefono";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(37, 120);
+            this.label5.Location = new System.Drawing.Point(68, 222);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 13);
+            this.label5.Size = new System.Drawing.Size(60, 25);
             this.label5.TabIndex = 4;
             this.label5.Text = "Email";
             // 
             // TextBoxId
             // 
-            this.TextBoxId.Location = new System.Drawing.Point(83, 26);
+            this.TextBoxId.Location = new System.Drawing.Point(152, 48);
+            this.TextBoxId.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.TextBoxId.Name = "TextBoxId";
-            this.TextBoxId.Size = new System.Drawing.Size(100, 20);
+            this.TextBoxId.Size = new System.Drawing.Size(180, 29);
             this.TextBoxId.TabIndex = 5;
             // 
             // TextBoxNombre
             // 
-            this.TextBoxNombre.Location = new System.Drawing.Point(83, 49);
+            this.TextBoxNombre.Location = new System.Drawing.Point(152, 90);
+            this.TextBoxNombre.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.TextBoxNombre.Name = "TextBoxNombre";
-            this.TextBoxNombre.Size = new System.Drawing.Size(100, 20);
+            this.TextBoxNombre.Size = new System.Drawing.Size(180, 29);
             this.TextBoxNombre.TabIndex = 6;
             // 
             // TextBoxApellido
             // 
-            this.TextBoxApellido.Location = new System.Drawing.Point(83, 72);
+            this.TextBoxApellido.Location = new System.Drawing.Point(152, 133);
+            this.TextBoxApellido.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.TextBoxApellido.Name = "TextBoxApellido";
-            this.TextBoxApellido.Size = new System.Drawing.Size(100, 20);
+            this.TextBoxApellido.Size = new System.Drawing.Size(180, 29);
             this.TextBoxApellido.TabIndex = 7;
             // 
             // TextBoxTelefono
             // 
-            this.TextBoxTelefono.Location = new System.Drawing.Point(83, 94);
+            this.TextBoxTelefono.Location = new System.Drawing.Point(152, 174);
+            this.TextBoxTelefono.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.TextBoxTelefono.Name = "TextBoxTelefono";
-            this.TextBoxTelefono.Size = new System.Drawing.Size(100, 20);
+            this.TextBoxTelefono.Size = new System.Drawing.Size(180, 29);
             this.TextBoxTelefono.TabIndex = 8;
             // 
             // TextBoxEmail
             // 
-            this.TextBoxEmail.Location = new System.Drawing.Point(83, 117);
+            this.TextBoxEmail.Location = new System.Drawing.Point(152, 216);
+            this.TextBoxEmail.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.TextBoxEmail.Name = "TextBoxEmail";
-            this.TextBoxEmail.Size = new System.Drawing.Size(100, 20);
+            this.TextBoxEmail.Size = new System.Drawing.Size(180, 29);
             this.TextBoxEmail.TabIndex = 9;
             // 
             // BotonGuardar
             // 
-            this.BotonGuardar.Location = new System.Drawing.Point(83, 144);
+            this.BotonGuardar.Location = new System.Drawing.Point(152, 266);
+            this.BotonGuardar.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.BotonGuardar.Name = "BotonGuardar";
-            this.BotonGuardar.Size = new System.Drawing.Size(100, 23);
+            this.BotonGuardar.Size = new System.Drawing.Size(183, 42);
             this.BotonGuardar.TabIndex = 10;
             this.BotonGuardar.Text = "Guardar";
             this.BotonGuardar.UseVisualStyleBackColor = true;
             this.BotonGuardar.Click += new System.EventHandler(this.BotonGuardar_Click);
             // 
+            // DataGridPersonas
+            // 
+            this.DataGridPersonas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridPersonas.Location = new System.Drawing.Point(389, 48);
+            this.DataGridPersonas.Name = "DataGridPersonas";
+            this.DataGridPersonas.RowTemplate.Height = 31;
+            this.DataGridPersonas.Size = new System.Drawing.Size(658, 260);
+            this.DataGridPersonas.TabIndex = 11;
+            // 
+            // BotonListar
+            // 
+            this.BotonListar.Location = new System.Drawing.Point(811, 314);
+            this.BotonListar.Name = "BotonListar";
+            this.BotonListar.Size = new System.Drawing.Size(236, 46);
+            this.BotonListar.TabIndex = 12;
+            this.BotonListar.Text = "Listar";
+            this.BotonListar.UseVisualStyleBackColor = true;
+            this.BotonListar.Click += new System.EventHandler(this.BotonListar_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(259, 211);
+            this.ClientSize = new System.Drawing.Size(1093, 391);
+            this.Controls.Add(this.BotonListar);
+            this.Controls.Add(this.DataGridPersonas);
             this.Controls.Add(this.BotonGuardar);
             this.Controls.Add(this.TextBoxEmail);
             this.Controls.Add(this.TextBoxTelefono);
@@ -147,8 +182,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridPersonas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,6 +204,8 @@
         private System.Windows.Forms.TextBox TextBoxTelefono;
         private System.Windows.Forms.TextBox TextBoxEmail;
         private System.Windows.Forms.Button BotonGuardar;
+        private System.Windows.Forms.DataGridView DataGridPersonas;
+        private System.Windows.Forms.Button BotonListar;
     }
 }
 
