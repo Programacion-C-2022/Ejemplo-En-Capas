@@ -52,11 +52,32 @@ namespace CapaLogica
 
         public DataTable ObtenerTodos()
         {
-            DataTable tabla = new DataTable();
+            DataTable tablaPersonas = new DataTable();
+            tablaPersonas.Columns.Add("Id", typeof(int));
+            tablaPersonas.Columns.Add("Nombre", typeof(string));
+            tablaPersonas.Columns.Add("Apellido", typeof(string));
+            tablaPersonas.Columns.Add("Telefono", typeof(int));
+            tablaPersonas.Columns.Add("Email", typeof(string));
+
             PersonitaModelo p = new PersonitaModelo();
             List<PersonitaModelo> personitas = p.Obtener();
 
-            return tabla;
+            foreach (PersonitaModelo persona in personitas)
+            {
+                DataRow fila = tablaPersonas.NewRow();
+                fila["Id"] = p.Id;
+                fila["Nombre"] = p.Nombre;
+                fila["Apellido"] = p.Apellido;
+                fila["Telefono"] = p.Telefono;
+                fila["Email"] = p.Email;
+
+                tablaPersonas.Rows.Add(fila);
+            }
+
+            return tablaPersonas;
+
+
+            return tablaPersonas;
         }
     }
 }
