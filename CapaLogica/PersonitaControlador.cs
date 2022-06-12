@@ -52,16 +52,20 @@ namespace CapaLogica
 
         public static DataTable ObtenerTodos()
         {
-            DataTable tablaPersonas = new DataTable();
-            tablaPersonas.Columns.Add("Id", typeof(int));
-            tablaPersonas.Columns.Add("Nombre", typeof(string));
-            tablaPersonas.Columns.Add("Apellido", typeof(string));
-            tablaPersonas.Columns.Add("Telefono", typeof(int));
-            tablaPersonas.Columns.Add("Email", typeof(string));
+            DataTable tablaDePersonas = crearTablaDePersonas();
+            llenarTablaDePersonas(tablaDePersonas);
+            return tablaDePersonas;
+        }
 
+        private static void llenarTablaDePersonas(DataTable tablaPersonas)
+        {
             PersonitaModelo p = new PersonitaModelo();
             List<PersonitaModelo> personitas = p.Obtener();
+            cargarFilasDesdeModelo(tablaPersonas, personitas);
+        }
 
+        private static void cargarFilasDesdeModelo(DataTable tablaPersonas, List<PersonitaModelo> personitas)
+        {
             foreach (PersonitaModelo persona in personitas)
             {
                 DataRow fila = tablaPersonas.NewRow();
@@ -70,10 +74,18 @@ namespace CapaLogica
                 fila["Apellido"] = persona.Apellido;
                 fila["Telefono"] = persona.Telefono;
                 fila["Email"] = persona.Email;
-
                 tablaPersonas.Rows.Add(fila);
             }
+        }
 
+        private static DataTable crearTablaDePersonas()
+        {
+            DataTable tablaPersonas = new DataTable();
+            tablaPersonas.Columns.Add("Id", typeof(int));
+            tablaPersonas.Columns.Add("Nombre", typeof(string));
+            tablaPersonas.Columns.Add("Apellido", typeof(string));
+            tablaPersonas.Columns.Add("Telefono", typeof(int));
+            tablaPersonas.Columns.Add("Email", typeof(string));
             return tablaPersonas;
         }
     }

@@ -47,20 +47,27 @@ namespace CapaDeDatos
 
         public void Obtener(int id)
         {
-            this.comando.CommandText = "SELECT * FROM personita WHERE id = @id"; 
+            obtenerFilaPorId(id);
+            llenarCamposDesdeDataReader();
 
-            this.comando.Parameters.AddWithValue("@id", id);
-            this.comando.Prepare();
-            this.dataReader = this.comando.ExecuteReader();
+        }
 
-            this.dataReader.Read();
-
+        private void llenarCamposDesdeDataReader()
+        {
             this.Id = Int32.Parse(this.dataReader["id"].ToString());
             this.Nombre = this.dataReader["nombre"].ToString();
             this.Apellido = this.dataReader["apellido"].ToString();
             this.Telefono = Int32.Parse(this.dataReader["telefono"].ToString());
             this.Email = this.dataReader["email"].ToString();
+        }
 
+        private void obtenerFilaPorId(int id)
+        {
+            this.comando.CommandText = "SELECT * FROM personita WHERE id = @id";
+            this.comando.Parameters.AddWithValue("@id", id);
+            this.comando.Prepare();
+            this.dataReader = this.comando.ExecuteReader();
+            this.dataReader.Read();
         }
 
         private void Actualizar()
@@ -90,10 +97,14 @@ namespace CapaDeDatos
 
         public List<PersonitaModelo> Obtener()
         {
-            List<PersonitaModelo> personitas = new List<PersonitaModelo>();
-            this.comando.CommandText = "SELECT * FROM personita";
-            this.dataReader = this.comando.ExecuteReader();
+            List<PersonitaModelo> personitas = obtenerTodasLasFilas();
+            crearArrayDePersonas(personitas);
+            return personitas;
 
+        }
+
+        private void crearArrayDePersonas(List<PersonitaModelo> personitas)
+        {
             while (this.dataReader.Read())
             {
                 PersonitaModelo p = new PersonitaModelo();
@@ -105,10 +116,14 @@ namespace CapaDeDatos
 
                 personitas.Add(p);
             }
-
-            return personitas;
-
         }
 
+        private List<PersonitaModelo> obtenerTodasLasFilas()
+        {
+            List<PersonitaModelo> personitas = new List<PersonitaModelo>();
+            this.comando.CommandText = "SELECT * FROM personita";
+            this.dataReader = this.comando.ExecuteReader();
+            return personitas;
+        }
     }
 }
