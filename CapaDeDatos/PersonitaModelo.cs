@@ -76,9 +76,10 @@ namespace CapaDeDatos
                 "nombre = @nombre," +
                 "apellido = @apellido," +
                 "telefono = @telefono," +
-                "email = @email" +
+                "email = @email " +
                 "WHERE id = @id";
 
+            this.comando.Parameters.AddWithValue("@id", this.Id);
             this.comando.Parameters.AddWithValue("@nombre", this.Nombre);
             this.comando.Parameters.AddWithValue("@apellido", this.Apellido);
             this.comando.Parameters.AddWithValue("@telefono", this.Telefono.ToString());
